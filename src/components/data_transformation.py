@@ -28,18 +28,12 @@ class DataTransformation:
     def get_data_transformer_object(self):
         try:
             
-            # define custom function to replace 'NA' with np.nan
-            # replace_na_with_nan = df.replace('NaN', np.nan, inplace=True)
-            # replace_na_with_nan = lambda X: X.applymap(lambda x: np.nan if x == 'NaN.' else x)
-
-            # define the steps for the preprocessor pipeline
-            # nan_replacement_step = ('nan_replacement', FunctionTransformer(replace_na_with_nan))
+           
             imputer_step = ('imputer', SimpleImputer(strategy='constant', fill_value=0))
             scaler_step = ('scaler', RobustScaler())
 
             preprocessor = Pipeline(
                 steps=[
-                # nan_replacement_step,
                 imputer_step,
                 scaler_step
                 ]

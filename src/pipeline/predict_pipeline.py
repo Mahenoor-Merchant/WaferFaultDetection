@@ -51,8 +51,6 @@ class PredictionPipeline:
 
     def predict(self, features):
         try:
-
-            # model = self.utils.load_object(r'D:\MLProjects\waferfaultdetection\artifacts\model.pkl')
             model = MainUtils.load_object(file_path=PredictionPipelineConfig.model_file_path)
             preprocessor = MainUtils.load_object(file_path=PredictionPipelineConfig.preprocessor_path)
             transformed_x = preprocessor.transform(features)
